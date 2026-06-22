@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球探 · 稳定入口说明</title>
+    <style>
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f7fa;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2e 0%, #1d334a 100%);
+            padding: 60px 24px 50px;
+            text-align: center;
+            color: #e6edf5;
+            border-bottom: 1px solid #2b4a66;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #aac3db;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            color: #b6d0e8;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+        /* 正文区 */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 32px 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e6edf5;
+            color: #0b1a2e;
+        }
+
+        .card p {
+            margin-bottom: 14px;
+            color: #2d3f55;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #1f6e8c;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #0a4460;
+            border-bottom: 1px solid #0a4460;
+        }
+
+        /* 特点网格 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin: 8px 0 4px;
+        }
+
+        .feature-item {
+            background: #f0f4f9;
+            border-radius: 16px;
+            padding: 18px 16px;
+        }
+
+        .feature-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #0b1a2e;
+        }
+
+        .feature-item p {
+            font-size: 0.92rem;
+            color: #3c5773;
+            margin-bottom: 0;
+        }
+
+        /* 使用建议列表 */
+        .usage-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .usage-list li {
+            padding: 10px 0 10px 28px;
+            position: relative;
+            border-bottom: 1px solid #eef3f8;
+            color: #1e3a5e;
+        }
+
+        .usage-list li:last-child {
+            border-bottom: none;
+        }
+
+        .usage-list li::before {
+            content: "·";
+            position: absolute;
+            left: 8px;
+            color: #1f6e8c;
+            font-weight: bold;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        /* FAQ 摘要 */
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #eef3f8;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #0b1a2e;
+            margin-bottom: 4px;
+        }
+
+        .faq-a {
+            color: #3c5773;
+            font-size: 0.95rem;
+        }
+
+        /* 可访问提示 */
+        .note-box {
+            background: #f8fafc;
+            border-left: 4px solid #b6c9db;
+            padding: 18px 20px;
+            border-radius: 10px;
+            margin: 20px 0 0;
+            font-size: 0.95rem;
+            color: #1e3a5e;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .sub {
+                font-size: 0.98rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .card {
+                padding: 24px 18px;
+            }
+
+            .container {
+                padding: 28px 16px 48px;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .hero {
+                padding: 40px 18px 34px;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <section class="hero">
+        <h1>球探 · 稳定入口</h1>
+        <p class="sub">一份关于如何顺畅使用 <a href="https://guess-qiutan.com" style="color:#c7def5; border-bottom-color:#6085a3;">球探</a> 的整理说明，帮助新用户快速建立清晰预期。</p>
+        <span class="badge">入口 · 摘要 · 场景</span>
+    </section>
+
+    <!-- 正文区 -->
+    <div class="container">
+
+        <!-- 产品摘要卡片 -->
+        <div class="card">
+            <h2>页面定位与摘要</h2>
+            <p>本页面是 <a href="https://guess-qiutan.com">球探</a> 的辅助说明页，并非完整官网。它从稳定入口、功能边界、使用建议等角度，整理出几个常见问题与实用片段。</p>
+            <p>如果你正在寻找一个信息密度适中、不带过度承诺的工具类站点，<a href="https://guess-qiutan.com">球探</a> 或许值得你花几分钟了解。以下内容基于日常使用经验编写，保持了克制的表述。</p>
+        </div>
+
+        <!-- 亮点：特点网格 -->
+        <div class="card">
+            <h2>几个值得留意的特点</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>入口稳定</h3>
+                    <p>主要访问路径保持相对固定，减少频繁更换链接带来的困扰。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>界面简洁</h3>
+                    <p>页面结构偏重信息直接呈现，没有过多装饰或干扰元素。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>专注特定场景</h3>
+                    <p>围绕球探领域的信息聚合与展示，功能边界清晰。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>低学习成本</h3>
+                    <p>没有复杂的注册或配置流程，打开即用，适合快速浏览。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 使用建议 -->
+        <div class="card">
+            <h2>使用建议</h2>
+            <ul class="usage-list">
+                <li>将 <a href="https://guess-qiutan.com">球探</a> 加入浏览器书签，作为日常访问的固定入口。</li>
+                <li>优先在桌面端或平板设备上打开，以获得完整的版面布局与响应效果。</li>
+                <li>如果遇到加载异常，可稍后重试，或检查本地网络环境是否稳定。</li>
+                <li>关注页面内更新的说明或提示，部分信息可能随时间调整。</li>
+                <li>不必频繁刷新或重复点击，页面内容以静态展示为主，动态交互有限。</li>
+            </ul>
+            <div class="note-box">
+                <strong>小提示：</strong> 任何工具都有其适用范围，<a href="https://guess-qiutan.com">球探</a> 提供的是一套相对固定的信息窗口，请根据实际需要合理使用。
+            </div>
+        </div>
+
+        <!-- 场景与FAQ摘要 -->
+        <div class="card">
+            <h2>典型场景与 FAQ 摘要</h2>
+
+            <div class="faq-item">
+                <div class="faq-q">什么时候适合打开球探？</div>
+                <div class="faq-a">当你需要快速了解当前球探相关的基础信息或动态时，可以将其作为一个参考入口。它不替代深度分析工具，适合轻度查阅。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">页面内容会频繁变动吗？</div>
+                <div class="faq-a">核心框架保持稳定，部分信息板块可能会根据实际情况做例行更新，但不会出现无预警的大幅改动。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">是否需要注册或登录？</div>
+                <div class="faq-a">直接打开 <a href="https://guess-qiutan.com">球探</a> 即可浏览，目前没有强制注册环节。部分功能可能需配合浏览器基础设置。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">移动端体验如何？</div>
+                <div class="faq-a">页面已做响应式适配，在手机浏览器上能以阅读流的形式呈现，但大屏设备的信息视野更完整。</div>
+            </div>
+
+            <div style="margin-top: 18px; font-size: 0.95rem; color: #3c5773; border-top: 1px solid #e6edf5; padding-top: 16px;">
+                <span>以上内容基于日常使用整理，如需直接访问，可前往 <a href="https://guess-qiutan.com">球探</a> 了解完整信息。</span>
+            </div>
+        </div>
+
+        <!-- 可信任但克制的访问说明 -->
+        <div class="card" style="margin-bottom: 0;">
+            <h2>访问说明与态度</h2>
+            <p>本说明页不扮演推荐或背书角色，仅从“稳定入口”和“页面说明”两个角度整理信息。<a href="https://guess-qiutan.com">球探</a> 是一个长期存在的站点，其内容与结构由运营方独立维护。</p>
+            <p>我们建议用户自行判断是否适合自身需求。任何工具都应当在充分了解后使用，本页面不包含诱导点击或夸张表述，所有描述均基于公开可查的页面特征。</p>
+            <p style="color: #506b85; font-size: 0.9rem; border-top: 1px solid #eef3f8; padding-top: 16px; margin-top: 8px;">
+                最后更新：2025 · 仅供入口说明参考
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
